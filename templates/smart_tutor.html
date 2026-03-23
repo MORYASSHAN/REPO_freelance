@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduPlat | Smart Tutor</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>EduPlat ML | Cogno-Tutor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #a855f7;
-            --secondary: #7e22ce;
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #2e1065 100%);
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --text-main: #f8fafc;
+            --bg-deep: #050812;
+            --bg-surface: #0a0f1e;
+            --primary: #22d3ee;
+            --primary-glow: rgba(34, 211, 238, 0.4);
+            --secondary: #3b82f6;
+            --text-main: #f1f5f9;
             --text-muted: #94a3b8;
+            --border-clr: rgba(255, 255, 255, 0.08);
         }
 
         * {
@@ -25,7 +26,9 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: var(--bg-gradient);
+            background-color: var(--bg-deep);
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 30px 30px;
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
@@ -35,40 +38,53 @@
         }
 
         .container {
-            background: var(--glass);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-clr);
+            border-radius: 20px;
             padding: 40px;
             width: 100%;
             max-width: 550px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 0.8s ease-out;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.6s ease-out;
+            position: relative;
+        }
+
+        .container::before {
+            content: "ID: COGNO_NODE_07";
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--primary);
+            opacity: 0.5;
         }
 
         h1 {
-            font-size: 2rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 10px;
             text-align: center;
-            background: linear-gradient(to right, #c084fc, #a855f7);
+            text-transform: uppercase;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         p.description {
             text-align: center;
             color: var(--text-muted);
-            margin-bottom: 30px;
-            font-weight: 300;
+            margin-bottom: 35px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         textarea {
             width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-clr);
             border-radius: 12px;
             padding: 15px;
             color: white;
@@ -82,26 +98,28 @@
 
         textarea:focus {
             border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.15);
+            background: rgba(34, 211, 238, 0.05);
+            box-shadow: 0 0 15px var(--primary-glow);
         }
 
         button {
             width: 100%;
             background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
+            color: #050812;
             border: none;
             padding: 14px;
             border-radius: 12px;
+            font-family: 'Space Mono', monospace;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+            box-shadow: 0 8px 25px var(--primary-glow);
             filter: brightness(1.1);
         }
 
@@ -113,11 +131,34 @@
         .back a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
 
         .back a:hover {
-            color: var(--text-main);
+            color: var(--primary);
+        }
+
+        .credits {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-clr);
+            text-align: center;
+        }
+
+        .credits b {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        .credits p {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 4px;
         }
 
         @keyframes fadeIn {
@@ -128,16 +169,21 @@
 </head>
 <body>
     <div class="container">
-        <h1>Smart Tutor</h1>
-        <p class="description">Ask me a question and I'll guide you through the answer.</p>
+        <h1>Cogno-Tutor</h1>
+        <p class="description">Heuristic Knowledge Assistant</p>
 
         <form method="POST">
-            <textarea name="question" rows="4" placeholder="Type your academic query here..." required></textarea>
-            <button type="submit">Ask Tutor</button>
+            <textarea name="question" rows="4" placeholder="Inject academic query into buffer..." required></textarea>
+            <button type="submit">Process Query</button>
         </form>
 
+        <div class="credits">
+            <b>burhanuddin bohra</b>
+            <p>Architect | I26040211</p>
+        </div>
+
         <div class="back">
-            <a href="/">← Back to Dashboard</a>
+            <a href="/">← Return to Core</a>
         </div>
     </div>
 </body>

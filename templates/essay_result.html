@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduPlat | Essay Results</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>EduPlat ML | NLP-Analysis Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #ec4899;
-            --secondary: #db2777;
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #450a0a 100%);
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --text-main: #f8fafc;
+            --bg-deep: #050812;
+            --bg-surface: #0a0f1e;
+            --primary: #22d3ee;
+            --primary-glow: rgba(34, 211, 238, 0.4);
+            --secondary: #3b82f6;
+            --text-main: #f1f5f9;
             --text-muted: #94a3b8;
+            --border-clr: rgba(255, 255, 255, 0.08);
         }
 
         * {
@@ -25,7 +26,9 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: var(--bg-gradient);
+            background-color: var(--bg-deep);
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 30px 30px;
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
@@ -35,44 +38,59 @@
         }
 
         .container {
-            background: var(--glass);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-clr);
+            border-radius: 20px;
             padding: 40px;
             width: 100%;
             max-width: 600px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             animation: slideIn 0.8s ease-out;
+            position: relative;
+        }
+
+        .container::before {
+            content: "ID: NLP_REPORT_RX";
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--primary);
+            opacity: 0.5;
         }
 
         h1 {
-            font-size: 1.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.2rem;
             color: var(--text-muted);
             margin-bottom: 30px;
             font-weight: 400;
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .result-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.02);
             border-radius: 16px;
             padding: 30px;
             margin-bottom: 30px;
-            border: 1px solid var(--glass-border);
+            border: 1px solid var(--border-clr);
         }
 
         .stat-item {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .stat-label {
             display: block;
-            color: var(--text-muted);
-            font-size: 0.85rem;
+            color: var(--primary);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .stat-value {
@@ -82,82 +100,117 @@
         }
 
         .grade-value {
-            font-size: 2.2rem;
-            background: linear-gradient(to right, #f472b6, #ec4899);
+            font-family: 'Space Mono', monospace;
+            font-size: 2.8rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
+            filter: drop-shadow(0 0 10px var(--primary-glow));
         }
 
         .feedback-box {
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
             padding: 20px;
             border-radius: 12px;
             margin-top: 15px;
             font-style: italic;
             color: var(--text-muted);
             border-left: 4px solid var(--primary);
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         .back {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
+            margin-top: 40px;
         }
 
         .back a {
             text-decoration: none;
             color: var(--text-main);
-            font-weight: 500;
-            font-size: 0.95rem;
-            padding: 12px 20px;
-            border-radius: 12px;
-            border: 1px solid var(--glass-border);
-            background: rgba(255, 255, 255, 0.05);
+            font-family: 'Space Mono', monospace;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: 1px solid var(--border-clr);
+            background: rgba(255, 255, 255, 0.03);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .back a:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             transform: translateY(-2px);
-        }
-
-        .back a.primary {
-            background: var(--primary);
             border-color: var(--primary);
         }
 
+        .back a.primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: #050812;
+            border: none;
+        }
+
+        .credits {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-clr);
+            text-align: center;
+        }
+
+        .credits b {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        .credits p {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
         @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-30px); }
+            from { opacity: 0; transform: translateX(-20px); }
             to { opacity: 1; transform: translateX(0); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Essay Evaluation</h1>
+        <h1>Linguistic Core Report</h1>
         
         <div class="result-card">
             <div class="stat-item">
-                <span class="stat-label">Word Count</span>
-                <span class="stat-value">{{ word_count }} words</span>
+                <span class="stat-label">Vector: Word_Count</span>
+                <span class="stat-value">{{ word_count }} UNITS</span>
             </div>
             
             <div class="stat-item">
-                <span class="stat-label">Overall Grade</span>
+                <span class="stat-label">Class: Performance_Grade</span>
                 <span class="grade-value">{{ grade }}</span>
             </div>
             
             <div class="stat-item" style="margin-bottom: 0;">
-                <span class="stat-label">feedback & analysis</span>
+                <span class="stat-label">Output: Synthesis_Feedback</span>
                 <div class="feedback-box">
                     "{{ feedback }}"
                 </div>
             </div>
         </div>
 
+        <div class="credits">
+            <b>burhanuddin bohra</b>
+            <p>Architect | I26040211</p>
+        </div>
+
         <div class="back">
-            <a href="/essay-grader" class="primary">Grade another essay</a>
+            <a href="/essay-grader" class="primary">Re-evaluate</a>
             <a href="/">Dashboard</a>
         </div>
     </div>

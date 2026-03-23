@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduPlat | QA Bot</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>EduPlat ML | Neural-QA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #8b5cf6;
-            --secondary: #6d28d9;
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --text-main: #f8fafc;
+            --bg-deep: #050812;
+            --bg-surface: #0a0f1e;
+            --primary: #22d3ee;
+            --primary-glow: rgba(34, 211, 238, 0.4);
+            --secondary: #3b82f6;
+            --text-main: #f1f5f9;
             --text-muted: #94a3b8;
+            --border-clr: rgba(255, 255, 255, 0.08);
         }
 
         * {
@@ -25,7 +26,9 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: var(--bg-gradient);
+            background-color: var(--bg-deep);
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 30px 30px;
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
@@ -35,26 +38,37 @@
         }
 
         .container {
-            background: var(--glass);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-clr);
+            border-radius: 20px;
             padding: 40px;
             width: 100%;
             max-width: 550px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             animation: slideUp 0.8s ease-out;
+            position: relative;
+        }
+
+        .container::before {
+            content: "STATUS: BOT_ACTIVE_V3";
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--primary);
+            opacity: 0.5;
         }
 
         h1 {
+            font-family: 'Space Mono', monospace;
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 10px;
             text-align: center;
-            background: linear-gradient(to right, #a78bfa, #8b5cf6);
+            text-transform: uppercase;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -62,13 +76,15 @@
             text-align: center;
             color: var(--text-muted);
             margin-bottom: 30px;
-            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         textarea {
             width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-clr);
             border-radius: 12px;
             padding: 15px;
             color: white;
@@ -82,42 +98,67 @@
 
         textarea:focus {
             border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+            background: rgba(34, 211, 238, 0.05);
+            box-shadow: 0 0 15px var(--primary-glow);
         }
 
         button {
             width: 100%;
             background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
+            color: #050812;
             border: none;
-            padding: 14px;
+            padding: 16px;
             border-radius: 12px;
+            font-family: 'Space Mono', monospace;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 8px 25px var(--primary-glow);
             filter: brightness(1.1);
         }
 
         .back {
-            margin-top: 25px;
+            margin-top: 30px;
             text-align: center;
         }
 
         .back a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
 
         .back a:hover {
-            color: var(--text-main);
+            color: var(--primary);
+        }
+
+        .credits {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-clr);
+            text-align: center;
+        }
+
+        .credits b {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        .credits p {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 4px;
         }
 
         @keyframes slideUp {
@@ -128,16 +169,21 @@
 </head>
 <body>
     <div class="container">
-        <h1>Smart QA Bot</h1>
-        <p class="description">Ask any academic question and get an instant AI-powered response.</p>
+        <h1>Neural-QA</h1>
+        <p class="description">Smart Query Interface</p>
 
         <form action="#" method="post">
-            <textarea name="question" rows="4" placeholder="Type your query here..."></textarea>
-            <button type="submit">Get Instant Answer</button>
+            <textarea name="question" rows="4" placeholder="Inject academic query into buffer..."></textarea>
+            <button type="submit">Compute Answer</button>
         </form>
 
+        <div class="credits">
+            <b>burhanuddin bohra</b>
+            <p>Architect | I26040211</p>
+        </div>
+
         <div class="back">
-            <a href="/">← Back to Dashboard</a>
+            <a href="/">← Return to Core</a>
         </div>
     </div>
 </body>

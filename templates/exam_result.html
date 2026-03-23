@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduPlat | Prediction Result</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>EduPlat ML | Forecaster Projection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #3b82f6;
-            --secondary: #2563eb;
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --text-main: #f8fafc;
+            --bg-deep: #050812;
+            --bg-surface: #0a0f1e;
+            --primary: #22d3ee;
+            --primary-glow: rgba(34, 211, 238, 0.4);
+            --secondary: #3b82f6;
+            --text-main: #f1f5f9;
             --text-muted: #94a3b8;
+            --border-clr: rgba(255, 255, 255, 0.08);
         }
 
         * {
@@ -25,7 +26,9 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: var(--bg-gradient);
+            background-color: var(--bg-deep);
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 30px 30px;
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
@@ -35,34 +38,49 @@
         }
 
         .container {
-            background: var(--glass);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-clr);
+            border-radius: 20px;
             padding: 50px;
             width: 100%;
             max-width: 450px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+        }
+
+        .container::before {
+            content: "ID: FC_RESULT_XR";
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--primary);
+            opacity: 0.5;
         }
 
         h1 {
-            font-size: 1.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
             color: var(--text-muted);
             font-weight: 400;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .result {
-            font-size: 4rem;
-            font-weight: 800;
-            background: linear-gradient(to right, #60a5fa, #3b82f6);
+            font-family: 'Space Mono', monospace;
+            font-size: 4.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             margin: 20px 0;
+            filter: drop-shadow(0 0 15px var(--primary-glow));
         }
 
         .unit {
@@ -71,50 +89,87 @@
             color: var(--text-muted);
         }
 
+        .status-msg {
+            color: var(--primary);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
         .back {
-            margin-top: 40px;
+            margin-top: 45px;
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
         }
 
         .back a {
             text-decoration: none;
             color: var(--text-main);
-            font-weight: 500;
-            font-size: 0.95rem;
-            padding: 10px 20px;
-            border-radius: 12px;
-            border: 1px solid var(--glass-border);
-            background: rgba(255, 255, 255, 0.05);
+            font-family: 'Space Mono', monospace;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 12px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-clr);
+            background: rgba(255, 255, 255, 0.03);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .back a:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             transform: translateY(-2px);
-        }
-
-        .back a.primary {
-            background: var(--primary);
             border-color: var(--primary);
         }
 
+        .back a.primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: #050812;
+            border: none;
+        }
+
+        .credits {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-clr);
+        }
+
+        .credits b {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        .credits p {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
         @keyframes bounceIn {
-            from { opacity: 0; transform: scale(0.5); }
+            from { opacity: 0; transform: scale(0.8); }
             to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Predicted Exam Score</h1>
+        <h1>Predicted Performance Vector</h1>
         <div class="result">
-            {{ predicted }}<span class="unit">/100</span>
+            {{ predicted }}<span class="unit">.00%</span>
         </div>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Keep up the hard work!</p>
+        <p class="status-msg">HEURISTIC PROJECTION COMPLETE</p>
         
+        <div class="credits">
+            <b>burhanuddin bohra</b>
+            <p>Architect | I26040211</p>
+        </div>
+
         <div class="back">
-            <a href="/exam-predictor" class="primary">Predict again</a>
+            <a href="/exam-predictor" class="primary">Re-Compute</a>
             <a href="/">Dashboard</a>
         </div>
     </div>

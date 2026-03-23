@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduPlat | Thank You</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>EduPlat ML | Query Committed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #a855f7;
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #2e1065 100%);
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --text-main: #f8fafc;
+            --bg-deep: #050812;
+            --bg-surface: #0a0f1e;
+            --primary: #22d3ee;
+            --primary-glow: rgba(34, 211, 238, 0.4);
+            --secondary: #3b82f6;
+            --text-main: #f1f5f9;
             --text-muted: #94a3b8;
+            --border-clr: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
         }
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: var(--bg-gradient);
+            background-color: var(--bg-deep);
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 30px 30px;
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
@@ -28,70 +39,113 @@
         }
 
         .container {
-            background: var(--glass);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-clr);
+            border-radius: 20px;
             padding: 60px 40px;
             width: 100%;
             max-width: 500px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .container::before {
+            content: "EVENT: COMMIT_SUCCESS";
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--primary);
+            opacity: 0.5;
         }
 
         .icon {
             font-size: 4rem;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             display: block;
+            filter: drop-shadow(0 0 15px var(--primary-glow));
         }
 
         .message {
+            font-family: 'Space Mono', monospace;
             font-size: 1.5rem;
-            font-weight: 500;
+            font-weight: 700;
             margin-bottom: 15px;
-            color: var(--text-main);
+            color: var(--primary);
+            text-transform: uppercase;
         }
 
         .sub-message {
             color: var(--text-muted);
             font-weight: 300;
             margin-bottom: 40px;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
         }
 
         .back a {
             text-decoration: none;
-            color: var(--text-main);
-            font-weight: 500;
-            padding: 12px 25px;
-            border-radius: 12px;
-            background: var(--primary);
-            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
-            transition: all 0.3s ease;
+            color: #050812;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            padding: 14px 30px;
+            border-radius: 10px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            box-shadow: 0 8px 20px var(--primary-glow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .back a:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+            box-shadow: 0 10px 25px var(--primary-glow);
             filter: brightness(1.1);
         }
 
+        .credits {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-clr);
+        }
+
+        .credits b {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.95rem;
+            color: var(--primary);
+        }
+
+        .credits p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
         @keyframes popIn {
-            from { opacity: 0; transform: scale(0.8); }
+            from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <span class="icon">✨</span>
+        <span class="icon">🛰️</span>
         <div class="message">
-            Thanks for submitting your query!
+            Query Committed
         </div>
         <div class="sub-message">
-            Our AI tutor will process your request and get back to you soon.
+            Heuristic knowledge engine has received the buffer. Processing will commence shortly.
         </div>
-        <div class="back">
-            <a href="/">Return to Dashboard</a>
+
+        <div class="credits">
+            <b>burhanuddin bohra</b>
+            <p>Architect | I26040211</p>
+        </div>
+
+        <div class="back" style="margin-top: 40px;">
+            <a href="/">Global Root</a>
         </div>
     </div>
 </body>
