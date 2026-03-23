@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPlat | Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --accent: #ec4899;
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .module-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .module-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .module-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary);
+            box-shadow: 0 12px 40px 0 rgba(99, 102, 241, 0.2);
+        }
+
+        .module-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .module-card span {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .footer-box {
+            margin-top: auto;
+            padding-top: 60px;
+            padding-bottom: 20px;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .credits {
+            background: var(--glass);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            padding: 15px 30px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .credits p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 2px 0;
+        }
+
+        .credits b {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .module-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EduPlat</h1>
+        <p class="subtitle">Empowering your academic journey with AI</p>
+    </header>
+
+    <div class="module-list">
+        <a href="/exam-predictor" class="module-card">
+            <i>📊</i>
+            <span>Exam Predictor</span>
+        </a>
+        <a href="/smart-tutor" class="module-card">
+            <i>🧠</i>
+            <span>Smart Tutor</span>
+        </a>
+        <a href="/essay-grader" class="module-card">
+            <i>✍️</i>
+            <span>Essay Grader</span>
+        </a>
+        <a href="/attendance" class="module-card">
+            <i>📅</i>
+            <span>Attendance</span>
+        </a>
+        <a href="/qa-bot" class="module-card">
+            <i>🤖</i>
+            <span>QA Bot</span>
+        </a>
+    </div>
+
+    <div class="footer-box">
+        <div class="credits">
+            <p>Made by</p>
+            <p><b>Mithil Panchal</b></p>
+            <p>I26040187</p>
+        </div>
+    </div>
+</body>
+</html>

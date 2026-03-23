@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPlat | Essay Grader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ec4899;
+            --secondary: #db2777;
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #450a0a 100%);
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: var(--glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+            background: linear-gradient(to right, #f472b6, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.description {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 20px;
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            outline: none;
+            resize: vertical;
+            min-height: 250px;
+            font-family: inherit;
+            line-height: 1.6;
+        }
+
+        textarea:focus {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.15);
+        }
+
+        button {
+            width: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .back {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .back a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back a:hover {
+            color: var(--text-main);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Essay Grader</h1>
+        <p class="description">Paste your content and let the AI evaluate your work.</p>
+
+        <form method="POST">
+            <textarea name="essay" rows="8" placeholder="Enter your full essay here..." required></textarea>
+            <button type="submit">Grade Essay</button>
+        </form>
+
+        <div class="back">
+            <a href="/">← Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

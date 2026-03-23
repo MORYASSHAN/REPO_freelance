@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPlat | Attendance Records</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0d9488;
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #064e3b 100%);
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(to right, #2dd4bf, #0d9488);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .table-container {
+            width: 100%;
+            max-width: 900px;
+            background: var(--glass);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            text-align: left;
+            padding: 20px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        td {
+            padding: 20px;
+            border-bottom: 1px solid var(--glass-border);
+            color: var(--text-main);
+            font-weight: 400;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-Present { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+        .status-Absent { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+
+        .back {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .back a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            padding: 12px 25px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .back a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .empty-state {
+            padding: 60px;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Attendance Records</h1>
+    
+    <div class="table-container">
+        {% if records %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Roll No</th>
+                        <th>Student Name</th>
+                        <th>Slot</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in records %}
+                    <tr>
+                        <td style="font-family: monospace; font-weight: 600; color: var(--primary);">#{{ record.roll_no }}</td>
+                        <td>{{ record.student_name }}</td>
+                        <td>{{ record.slot }}</td>
+                        <td>
+                            <span class="status-badge status-{{ record.status }}">
+                                {{ record.status }}
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="empty-state">
+                <p>No attendance records found for today.</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="back">
+        <a href="/attendance">Mark More</a>
+        <a href="/">Dashboard</a>
+    </div>
+</body>
+</html>

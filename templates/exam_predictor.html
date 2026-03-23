@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPlat | Exam Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #2563eb;
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: var(--glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            animation: scaleIn 0.6s ease-out;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+            background: linear-gradient(to right, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.description {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 12px 15px;
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+        }
+
+        button {
+            width: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .back {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .back a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        .back a:hover {
+            color: var(--text-main);
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exam Predictor</h1>
+        <p class="description">AI-driven score forecasting based on your habits.</p>
+
+        <form method="POST">
+            <label for="study_hours">Study Hours (Daily):</label>
+            <input type="number" step="any" name="study_hours" id="study_hours" placeholder="e.g. 5.5" required>
+
+            <label for="attendance">Attendance Percentage (%):</label>
+            <input type="number" step="any" name="attendance" id="attendance" placeholder="e.g. 85" required>
+
+            <label for="past_scores">Average Past Scores:</label>
+            <input type="number" step="any" name="past_scores" id="past_scores" placeholder="e.g. 78" required>
+
+            <button type="submit">Predict Score</button>
+        </form>
+
+        <div class="back">
+            <a href="/">← Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
