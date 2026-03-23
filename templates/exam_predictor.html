@@ -3,33 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduPlat ML | Forecaster</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Education Platform | Exam Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #050812;
-            --bg-surface: #0a0f1e;
-            --primary: #22d3ee;
-            --primary-glow: rgba(34, 211, 238, 0.4);
-            --secondary: #3b82f6;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-            --border-clr: rgba(255, 255, 255, 0.08);
+            --bg-obsidian: #02040a;
+            --bg-surface: #0a0c10;
+            --accent-lime: #00f400;
+            --accent-lime-glow: rgba(0, 244, 0, 0.4);
+            --accent-violet: #8a2be2;
+            --accent-violet-glow: rgba(138, 43, 226, 0.4);
+            --text-ivory: #ffffff;
+            --text-dim: #64748b;
+            --border-glow: #1e293b;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-deep);
-            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
-            background-size: 30px 30px;
-            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-obsidian);
+            background-image: 
+                linear-gradient(rgba(0, 244, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 244, 0, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--text-ivory);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -39,168 +42,171 @@
 
         .container {
             background: var(--bg-surface);
-            border: 1px solid var(--border-clr);
-            border-radius: 20px;
-            padding: 40px;
+            border: 1px solid var(--accent-lime);
+            border-radius: 4px;
+            padding: 50px;
             width: 100%;
-            max-width: 480px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 0.6s ease-out;
+            max-width: 500px;
             position: relative;
+            box-shadow: 0 0 30px rgba(0, 244, 0, 0.05);
+            animation: fIn 0.6s ease-out;
         }
 
         .container::before {
-            content: "ID: FORECASTER_NODE_01";
+            content: "MODULE: EXAM_PREDICTOR";
             position: absolute;
-            top: 15px;
-            right: 20px;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.65rem;
-            color: var(--primary);
-            opacity: 0.5;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-obsidian);
+            padding: 0 10px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-lime);
         }
 
         h1 {
-            font-family: 'Space Mono', monospace;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 2rem;
             text-align: center;
+            margin-bottom: 10px;
             text-transform: uppercase;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--accent-lime);
+            text-shadow: 0 0 10px var(--accent-lime-glow);
         }
 
         p.description {
             text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 35px;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            color: var(--text-dim);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        form label {
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
             display: block;
-            margin-bottom: 8px;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--primary);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-violet);
             text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
         }
 
         input {
             width: 100%;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-clr);
-            border-radius: 10px;
-            padding: 14px 18px;
-            color: white;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.95rem;
-            margin-bottom: 25px;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glow);
+            border-radius: 4px;
+            color: var(--text-ivory);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1rem;
             outline: none;
         }
 
         input:focus {
-            border-color: var(--primary);
-            background: rgba(34, 211, 238, 0.05);
-            box-shadow: 0 0 15px var(--primary-glow);
+            border-color: var(--accent-lime);
+            background: rgba(0, 244, 0, 0.03);
+            box-shadow: 0 0 15px rgba(0, 244, 0, 0.1);
         }
 
         button {
             width: 100%;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: #050812;
-            border: none;
             padding: 16px;
-            border-radius: 10px;
-            font-family: 'Space Mono', monospace;
-            font-size: 1rem;
+            background: var(--accent-lime);
+            border: none;
+            border-radius: 4px;
+            color: var(--bg-obsidian);
+            font-family: 'Share Tech Mono', monospace;
             font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
+            margin-top: 20px;
+            box-shadow: 0 0 20px var(--accent-lime-glow);
         }
 
         button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px var(--primary-glow);
+            transform: scale(1.02);
             filter: brightness(1.1);
         }
 
-        .back {
-            margin-top: 30px;
+        .back-link {
+            display: block;
             text-align: center;
-        }
-
-        .back a {
-            color: var(--text-muted);
+            margin-top: 30px;
+            color: var(--text-dim);
             text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
             font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
         }
 
-        .back a:hover {
-            color: var(--primary);
+        .back-link:hover {
+            color: var(--accent-lime);
         }
 
         .credits {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-clr);
+            margin-top: 45px;
             text-align: center;
+            border-top: 1px solid var(--border-glow);
+            padding-top: 25px;
         }
 
         .credits b {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.9rem;
-            color: var(--primary);
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-violet);
+            font-size: 1rem;
+            display: block;
         }
 
-        .credits p {
-            font-size: 0.7rem;
-            color: var(--text-muted);
+        .credits span {
+            font-size: 0.75rem;
+            color: var(--text-dim);
             text-transform: uppercase;
             margin-top: 4px;
+            display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        @keyframes fIn {
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Forecaster</h1>
-        <p class="description">Non-Linear Prediction Engine</p>
-
+        <h1>Exam Predictor</h1>
+        <p class="description">Predict Your Score</p>
+        
         <form method="POST">
-            <label for="study_hours">Vector: Study_Metrics</label>
-            <input type="number" step="any" name="study_hours" id="study_hours" placeholder="Intensity (Hours)" required anonymous>
-
-            <label for="attendance">Vector: Presence_Ratio (%)</label>
-            <input type="number" step="any" name="attendance" id="attendance" placeholder="Confidence (0-100)" required>
-
-            <label for="past_scores">Vector: Historical_Data</label>
-            <input type="number" step="any" name="past_scores" id="past_scores" placeholder="Avg Mean Score" required>
-
-            <button type="submit">Compute Projection</button>
+            <div class="form-group">
+                <label>Study Time (Hours):</label>
+                <input type="number" step="any" name="study_hours" placeholder="0.0" required>
+            </div>
+            <div class="form-group">
+                <label>Attendance Rate (%):</label>
+                <input type="number" step="any" name="attendance" placeholder="0" required>
+            </div>
+            <div class="form-group">
+                <label>Past Performance (Marks):</label>
+                <input type="number" step="any" name="past_scores" placeholder="0" required>
+            </div>
+            <button type="submit">Predict Score</button>
         </form>
 
         <div class="credits">
-            <b>burhanuddin bohra</b>
-            <p>Architect | I26040211</p>
+            <b>Taha Bohra</b>
+            <span>Researcher | I26040241</span>
         </div>
 
-        <div class="back">
-            <a href="/">← Return to Core</a>
-        </div>
+        <a href="/" class="back-link">Back to Dashboard</a>
     </div>
 </body>
 </html>

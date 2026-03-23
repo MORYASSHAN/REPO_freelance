@@ -3,33 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduPlat ML | Query Committed</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Education Platform | Success</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #050812;
-            --bg-surface: #0a0f1e;
-            --primary: #22d3ee;
-            --primary-glow: rgba(34, 211, 238, 0.4);
-            --secondary: #3b82f6;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-            --border-clr: rgba(255, 255, 255, 0.08);
+            --bg-obsidian: #02040a;
+            --bg-surface: #0a0c10;
+            --accent-lime: #00f400;
+            --accent-lime-glow: rgba(0, 244, 0, 0.4);
+            --accent-violet: #8a2be2;
+            --accent-violet-glow: rgba(138, 43, 226, 0.4);
+            --text-ivory: #ffffff;
+            --text-dim: #64748b;
+            --border-glow: #1e293b;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-deep);
-            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
-            background-size: 30px 30px;
-            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-obsidian);
+            background-image: 
+                linear-gradient(rgba(0, 244, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 244, 0, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--text-ivory);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -40,90 +43,95 @@
 
         .container {
             background: var(--bg-surface);
-            border: 1px solid var(--border-clr);
-            border-radius: 20px;
+            border: 1px solid var(--accent-lime);
+            border-radius: 4px;
             padding: 60px 40px;
             width: 100%;
             max-width: 500px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
+            box-shadow: 0 0 40px rgba(0, 244, 0, 0.05);
+            animation: pIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .container::before {
-            content: "EVENT: COMMIT_SUCCESS";
+            content: "EVENT: SUCCESS";
             position: absolute;
-            top: 20px;
-            right: 25px;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.65rem;
-            color: var(--primary);
-            opacity: 0.5;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-obsidian);
+            padding: 0 10px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-lime);
         }
 
-        .icon {
-            font-size: 4rem;
-            margin-bottom: 25px;
+        .status-icon {
+            font-size: 5rem;
+            margin-bottom: 30px;
             display: block;
-            filter: drop-shadow(0 0 15px var(--primary-glow));
+            filter: drop-shadow(0 0 20px var(--accent-lime-glow));
         }
 
-        .message {
-            font-family: 'Space Mono', monospace;
-            font-size: 1.5rem;
+        .msg-primary {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--primary);
+            margin-bottom: 20px;
+            color: var(--accent-lime);
             text-transform: uppercase;
         }
 
-        .sub-message {
-            color: var(--text-muted);
-            font-weight: 300;
-            margin-bottom: 40px;
+        .msg-secondary {
+            color: var(--text-dim);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            margin-bottom: 50px;
+            line-height: 1.6;
             letter-spacing: 1px;
-            font-size: 0.95rem;
         }
 
-        .back a {
+        .btn-root {
+            display: inline-block;
             text-decoration: none;
-            color: #050812;
-            font-family: 'Space Mono', monospace;
+            color: var(--bg-obsidian);
+            font-family: 'Share Tech Mono', monospace;
             font-weight: 700;
-            padding: 14px 30px;
-            border-radius: 10px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            box-shadow: 0 8px 20px var(--primary-glow);
+            padding: 16px 40px;
+            border-radius: 4px;
+            background: var(--accent-violet);
+            color: white;
+            box-shadow: 0 0 20px var(--accent-violet-glow);
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .back a:hover {
+        .btn-root:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px var(--primary-glow);
             filter: brightness(1.1);
+            box-shadow: 0 0 30px var(--accent-violet-glow);
         }
 
         .credits {
-            margin-top: 50px;
-            padding-top: 25px;
-            border-top: 1px solid var(--border-clr);
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-glow);
         }
 
         .credits b {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.95rem;
-            color: var(--primary);
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-lime);
+            font-size: 1.1rem;
+            display: block;
         }
 
-        .credits p {
-            font-size: 0.75rem;
-            color: var(--text-muted);
+        .credits span {
+            font-size: 0.8rem;
+            color: var(--text-dim);
             text-transform: uppercase;
-            margin-top: 5px;
+            margin-top: 6px;
+            display: block;
         }
 
-        @keyframes popIn {
+        @keyframes pIn {
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
         }
@@ -131,21 +139,21 @@
 </head>
 <body>
     <div class="container">
-        <span class="icon">🛰️</span>
-        <div class="message">
-            Query Committed
+        <span class="status-icon">⚡</span>
+        <div class="msg-primary">
+        Success
         </div>
-        <div class="sub-message">
-            Heuristic knowledge engine has received the buffer. Processing will commence shortly.
+        <div class="msg-secondary">
+            Your question has been received. Our tutor will provide the answer shortly.
         </div>
 
         <div class="credits">
-            <b>burhanuddin bohra</b>
-            <p>Architect | I26040211</p>
+            <b>Taha Bohra</b>
+            <span>Researcher | I26040241</span>
         </div>
 
-        <div class="back" style="margin-top: 40px;">
-            <a href="/">Global Root</a>
+        <div style="margin-top: 45px;">
+            <a href="/" class="btn-root">Back to Dashboard</a>
         </div>
     </div>
 </body>

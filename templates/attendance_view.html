@@ -3,33 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduPlat ML | Data Log Archive</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Education Platform | Attendance Records</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #050812;
-            --bg-surface: #0a0f1e;
-            --primary: #22d3ee;
-            --primary-glow: rgba(34, 211, 238, 0.4);
-            --secondary: #3b82f6;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-            --border-clr: rgba(255, 255, 255, 0.08);
+            --bg-obsidian: #02040a;
+            --bg-surface: #0a0c10;
+            --accent-lime: #00f400;
+            --accent-lime-glow: rgba(0, 244, 0, 0.4);
+            --accent-violet: #8a2be2;
+            --accent-violet-glow: rgba(138, 43, 226, 0.4);
+            --text-ivory: #ffffff;
+            --text-dim: #64748b;
+            --border-glow: #1e293b;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-deep);
-            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
-            background-size: 30px 30px;
-            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-obsidian);
+            background-image: 
+                linear-gradient(rgba(0, 244, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 244, 0, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--text-ivory);
             min-height: 100vh;
             padding: 60px 20px;
             display: flex;
@@ -38,53 +41,48 @@
         }
 
         h1 {
-            font-family: 'Space Mono', monospace;
-            font-size: 2.2rem;
-            margin-bottom: 45px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--accent-lime);
+            text-shadow: 0 0 15px var(--accent-lime-glow);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            filter: drop-shadow(0 0 10px var(--primary-glow));
+            letter-spacing: 4px;
         }
 
-        .table-container {
+        .archive-container {
             width: 100%;
-            max-width: 950px;
+            max-width: 1000px;
             background: var(--bg-surface);
-            border: 1px solid var(--border-clr);
-            border-radius: 20px;
+            border: 1px solid var(--accent-lime);
+            border-radius: 4px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-            animation: fadeIn 0.8s ease-out;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+            animation: fIn 0.8s ease-out;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
+            font-family: 'Share Tech Mono', monospace;
         }
 
         th {
-            background: rgba(255, 255, 255, 0.03);
-            color: var(--primary);
-            font-family: 'Space Mono', monospace;
+            background: rgba(0, 244, 0, 0.05);
+            color: var(--accent-lime);
             text-align: left;
-            padding: 22px;
-            font-size: 0.75rem;
+            padding: 24px;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-weight: 600;
-            border-bottom: 1px solid var(--border-clr);
+            border-bottom: 1px solid var(--accent-lime);
         }
 
         td {
-            padding: 20px 22px;
-            border-bottom: 1px solid var(--border-clr);
-            color: var(--text-main);
-            font-size: 0.95rem;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-glow);
+            color: var(--text-ivory);
+            font-size: 1rem;
         }
 
         tr:last-child td {
@@ -92,112 +90,110 @@
         }
 
         tr:hover td {
-            background: rgba(34, 211, 238, 0.03);
+            background: rgba(0, 244, 0, 0.02);
         }
 
-        .status-badge {
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
+        .badge {
+            padding: 6px 16px;
+            border-radius: 2px;
+            font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
+            border: 1px solid transparent;
         }
 
         .status-Present { 
-            background: rgba(34, 211, 238, 0.1); 
-            color: var(--primary);
-            border: 1px solid var(--primary);
+            color: var(--accent-lime);
+            border-color: var(--accent-lime);
+            background: rgba(0, 244, 0, 0.05);
         }
         .status-Absent { 
-            background: rgba(239, 68, 68, 0.1); 
-            color: #ef4444;
-            border: 1px solid #ef4444;
+            color: #ff3366;
+            border-color: #ff3366;
+            background: rgba(255, 51, 102, 0.05);
         }
 
-        .back {
-            margin-top: 50px;
+        .nav-links {
+            margin-top: 60px;
             display: flex;
-            gap: 20px;
+            gap: 25px;
         }
 
-        .back a {
+        .nav-links a {
             text-decoration: none;
-            color: var(--text-muted);
-            font-family: 'Space Mono', monospace;
-            font-weight: 600;
-            padding: 14px 28px;
-            border-radius: 10px;
-            border: 1px solid var(--border-clr);
-            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-dim);
+            font-family: 'Share Tech Mono', monospace;
+            padding: 14px 32px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
-        .back a:hover {
-            color: var(--primary);
-            background: rgba(34, 211, 238, 0.05);
-            border-color: var(--primary);
+        .nav-links a:hover {
+            color: var(--accent-lime);
+            border-color: var(--accent-lime);
+            background: rgba(0, 244, 0, 0.02);
             transform: translateY(-2px);
         }
 
-        .empty-state {
-            padding: 80px;
+        .empty {
+            padding: 100px;
             text-align: center;
-            color: var(--text-muted);
-            font-family: 'Space Mono', monospace;
+            color: var(--text-dim);
+            font-family: 'Share Tech Mono', monospace;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .credits {
-            margin-top: 60px;
+            margin-top: 70px;
             text-align: center;
         }
 
         .credits b {
-            font-family: 'Space Mono', monospace;
-            font-size: 1rem;
-            color: var(--primary);
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-violet);
+            font-size: 1.2rem;
+            display: block;
         }
 
-        .credits p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
+        .credits span {
+            font-size: 0.85rem;
+            color: var(--text-dim);
             text-transform: uppercase;
             margin-top: 6px;
+            display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; filter: blur(10px); }
-            to { opacity: 1; filter: blur(0); }
+        @keyframes fIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
-    <h1>Data Log Archive</h1>
+    <h1>Attendance Records</h1>
     
-    <div class="table-container">
+    <div class="archive-container">
         {% if records %}
             <table>
                 <thead>
                     <tr>
-                        <th>UID: Entry</th>
-                        <th>Identifier: Subject</th>
-                        <th>Param: Time_Slot</th>
-                        <th>State: Boolean</th>
+                        <th>Roll No</th>
+                        <th>Student Name</th>
+                        <th>Session</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for record in records %}
                     <tr>
-                        <td style="font-family: 'Space Mono', monospace; font-weight: 600; color: var(--primary);">#{{ record.roll_no }}</td>
+                        <td style="color: var(--accent-lime);">#{{ record.roll_no }}</td>
                         <td>{{ record.student_name }}</td>
-                        <td style="font-family: 'Space Mono', monospace; font-size: 0.85rem;">{{ record.slot }}</td>
+                        <td>{{ record.slot }}</td>
                         <td>
-                            <span class="status-badge status-{{ record.status }}">
+                            <span class="badge status-{{ record.status }}">
                                 {{ record.status }}
                             </span>
                         </td>
@@ -206,20 +202,20 @@
                 </tbody>
             </table>
         {% else %}
-            <div class="empty-state">
-                <p>NULL_PTR: No records found in current buffer.</p>
+            <div class="empty">
+                <p>No records found.</p>
             </div>
         {% endif %}
     </div>
 
     <div class="credits">
-        <b>burhanuddin bohra</b>
-        <p>Architect | I26040211</p>
+        <b>Taha Bohra</b>
+        <span>Researcher | I26040241</span>
     </div>
 
-    <div class="back">
-        <a href="/attendance">Commit Entry</a>
-        <a href="/">Global Root</a>
+    <div class="nav-links">
+        <a href="/attendance">Add New Entry</a>
+        <a href="/" style="color: var(--accent-lime)">Dashboard</a>
     </div>
 </body>
 </html>

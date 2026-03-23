@@ -3,169 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduPlat ML | Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Education Dashboard | Taha Bohra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #050812;
-            --bg-surface: #0a0f1e;
-            --primary: #22d3ee;
-            --primary-glow: rgba(34, 211, 238, 0.4);
-            --secondary: #3b82f6;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-            --border-clr: rgba(255, 255, 255, 0.08);
-            --card-hover: rgba(34, 211, 238, 0.05);
+            --bg-obsidian: #02040a;
+            --bg-surface: #0a0c10;
+            --accent-lime: #00f400;
+            --accent-lime-glow: rgba(0, 244, 0, 0.4);
+            --accent-violet: #8a2be2;
+            --accent-violet-glow: rgba(138, 43, 226, 0.4);
+            --text-ivory: #ffffff;
+            --text-dim: #64748b;
+            --border-glow: #1e293b;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-deep);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-obsidian);
             background-image: 
-                radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
-            background-size: 40px 40px;
-            color: var(--text-main);
+                linear-gradient(rgba(0, 244, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 244, 0, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            color: var(--text-ivory);
             min-height: 100vh;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 60px 20px;
-            overflow-x: hidden;
         }
 
         header {
+            width: 100%;
+            padding: 60px 20px;
             text-align: center;
-            margin-bottom: 60px;
-            animation: fadeIn 1s ease-out;
-        }
-
-        h1 {
-            font-family: 'Space Mono', monospace;
-            font-size: 3.5rem;
-            font-weight: 700;
-            letter-spacing: -2px;
-            text-transform: uppercase;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 5px;
+            border-bottom: 2px solid var(--accent-lime);
+            background: linear-gradient(180deg, rgba(0, 244, 0, 0.05) 0%, transparent 100%);
             position: relative;
         }
 
-        h1::after {
-            content: 'ML_ENGINE_V2.0';
+        header::after {
+            content: "";
             position: absolute;
-            bottom: -15px;
+            bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 0.8rem;
-            letter-spacing: 4px;
-            color: var(--primary);
-            opacity: 0.6;
+            width: 14px;
+            height: 14px;
+            background: var(--accent-lime);
+            rotate: 45deg;
+            box-shadow: 0 0 15px var(--accent-lime-glow);
         }
 
-        p.subtitle {
-            margin-top: 25px;
-            font-size: 1rem;
-            color: var(--text-muted);
-            letter-spacing: 1px;
+        h1 {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 3.5rem;
+            letter-spacing: -2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            color: var(--accent-lime);
+            text-shadow: 0 0 20px var(--accent-lime-glow);
+        }
+
+        .tagline {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-violet);
+            font-size: 1.1rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
         }
 
-        .module-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+        .container {
             width: 100%;
-            max-width: 1100px;
-            animation: slideUp 0.8s ease-out both;
+            max-width: 1200px;
+            margin: 80px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
         }
 
         .module-card {
             background: var(--bg-surface);
-            border: 1px solid var(--border-clr);
-            border-radius: 16px;
-            padding: 40px 30px;
+            border: 1px solid var(--border-glow);
+            padding: 40px;
+            border-radius: 4px;
             text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .module-card::before {
             content: "";
             position: absolute;
-            top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
+            background: var(--accent-lime);
+            transform: scaleY(0);
+            transition: 0.3s;
         }
 
         .module-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            background: var(--card-hover);
-            box-shadow: 0 10px 40px var(--primary-glow);
+            transform: translateY(-8px);
+            border-color: var(--accent-lime);
+            box-shadow: 0 15px 40px rgba(0, 244, 0, 0.1);
         }
 
         .module-card:hover::before {
-            opacity: 1;
+            transform: scaleY(1);
         }
 
-        .module-card i {
-            font-size: 3rem;
+        .module-head {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.6rem;
             margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px var(--primary-glow));
+            color: var(--accent-lime);
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .module-card span {
-            font-family: 'Space Mono', monospace;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-main);
-            text-transform: uppercase;
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: rgba(138, 43, 226, 0.1);
+            border: 1px solid var(--accent-violet);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            color: var(--accent-violet);
+            font-size: 1.5rem;
         }
 
-        .footer-box {
-            margin-top: 80px;
+        .module-card p {
+            color: var(--text-dim);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            width: 100%;
+            margin-top: auto;
+            padding: 60px 20px;
             text-align: center;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-glow);
         }
 
-        .credits {
-            border-left: 2px solid var(--primary);
-            padding: 10px 25px;
-            background: rgba(255,255,255,0.02);
+        .made-by {
+            display: inline-block;
+            padding: 15px 30px;
+            border: 1px solid var(--accent-violet);
+            border-radius: 4px;
+            background: rgba(138, 43, 226, 0.05);
+            margin-bottom: 20px;
         }
 
-        .credits p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-        }
-
-        .credits b {
-            font-family: 'Space Mono', monospace;
-            font-size: 1.1rem;
-            color: var(--primary);
+        .made-by b {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-violet);
+            font-size: 1.2rem;
             display: block;
         }
 
-        .credits .id-tag {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 5px;
+        .made-by span {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         @keyframes fadeIn {
@@ -173,52 +190,68 @@
             to { opacity: 1; filter: blur(0); }
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
-            .module-list { grid-template-columns: 1fr; }
+            .container { margin: 40px auto; }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>EduPlat ML</h1>
-        <p class="subtitle">Neural-Enhanced Learning Architecture</p>
+        <h1>Education Dashboard</h1>
+        <div class="tagline">Empowering Learning through AI</div>
     </header>
 
-    <div class="module-list">
+    <div class="container">
         <a href="/exam-predictor" class="module-card">
-            <i>📊</i>
-            <span>Forecaster</span>
+            <div class="module-head">
+                <div class="icon-box">Λ</div>
+                <span>Exam Predictor</span>
+            </div>
+            <p>Predict your exam scores based on study hours, attendance, and past performance.</p>
         </a>
+
         <a href="/smart-tutor" class="module-card">
-            <i>🧠</i>
-            <span>Cogno-Tutor</span>
+            <div class="module-head">
+                <div class="icon-box">Σ</div>
+                <span>Smart Tutor</span>
+            </div>
+            <p>Get personalized study recommendations and quick answers to your academic queries.</p>
         </a>
+
         <a href="/essay-grader" class="module-card">
-            <i>✍️</i>
-            <span>NLP-Grader</span>
+            <div class="module-head">
+                <div class="icon-box">Ω</div>
+                <span>Essay Grader</span>
+            </div>
+            <p>Submit your essays for automated grading and detailed feedback on your writing.</p>
         </a>
+
         <a href="/attendance" class="module-card">
-            <i>📅</i>
-            <span>Data Logs</span>
+            <div class="module-head">
+                <div class="icon-box">Δ</div>
+                <span>Attendance</span>
+            </div>
+            <p>Keep track of your presence and view your session logs.</p>
         </a>
+
         <a href="/qa-bot" class="module-card">
-            <i>🤖</i>
-            <span>Neural-QA</span>
+            <div class="module-head">
+                <div class="icon-box">Π</div>
+                <span>Q&A Bot</span>
+            </div>
+            <p>Ask questions and get instant answers from our intelligent knowledge base.</p>
         </a>
     </div>
 
-    <div class="footer-box">
-        <div class="credits">
-            <p>System Architect</p>
-            <b>burhanuddin bohra</b>
-            <div class="id-tag">I26040211</div>
+    <footer>
+        <div class="made-by">
+            <b>Taha Bohra</b>
+            <span>Researcher | I26040241</span>
         </div>
-    </div>
+        <p style="color: var(--text-dim); font-size: 0.8rem; font-family: 'Share Tech Mono', monospace;">
+            © 2026 Education Platform [ACTIVE_SESSION]
+        </p>
+    </footer>
 </body>
 </html>
