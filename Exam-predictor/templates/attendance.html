@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mark Attendance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_aaru.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="attendance">
+    <div class="container">
+        <h2><i class="fas fa-fingerprint"></i> ATTENDANCE_SYSTEM / AUTH</h2>
+        <form action="/attendance_log" method="POST">
+            <div class="form-group">
+                <label><i class="fas fa-user-secret"></i> ROLL_ID:</label>
+                <input type="text" name="roll_no" required placeholder="UID_000">
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-user-tag"></i> ENTITY_NAME:</label>
+                <input type="text" name="student_name" required placeholder="NAME">
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-clock"></i> TIME_SLOT:</label>
+                <select name="slot" required>
+                    <option>Morning</option>
+                    <option>Afternoon</option>
+                    <option>Evening</option>
+                    <option>Extra</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-info-circle"></i> STATUS_CODE:</label>
+                <select name="status" required>
+                    <option>Present</option>
+                    <option>Absent</option>
+                    <option>NA</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-gradient">SUBMIT_LOG</button>
+        </form>
+
+        <div class="links" style="margin-top: 25px;">
+            <a href="/attendance_log" class="btn-back" style="color: #43cea2;"><i class="fas fa-database"></i> ACCESS_LOGS</a>
+            <br>
+            <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> RETURN_TO_CORE</a>
+        </div>
+
+        <div class="attribution-box">
+            <span class="attribution-name">Mithil Panchal</span>
+            <span class="attribution-id">I26040187</span>
+        </div>
+    </div>
+
+</body>
+</html>

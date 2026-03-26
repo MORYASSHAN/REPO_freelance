@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Essay Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_aaru.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="essay">
+    <div class="container">
+        <h2><i class="fas fa-clipboard-check"></i> ANALYSIS_COMPLETE / REPORT</h2>
+        <div class="result-box">
+            <p style="font-family: 'JetBrains Mono', monospace; font-size: 24px; color: var(--neon-cyan);">>> SCORE: {{ score }}/100</p>
+            <p><strong>[FEEDBACK]:</strong> {{ feedback }}</p>
+        </div>
+
+        <a href="/essay" class="btn-back" style="color: var(--neon-cyan);"><i class="fas fa-redo"></i> NEW_ANALYSIS</a>
+        <br>
+        <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> RETURN_TO_CORE</a>
+
+        <div class="attribution-box">
+            <span class="attribution-name">Mithil Panchal</span>
+            <span class="attribution-id">I26040187</span>
+        </div>
+    </div>
+
+</body>
+</html>

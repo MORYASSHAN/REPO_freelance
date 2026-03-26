@@ -1,0 +1,6 @@
+
+2026-03-20,1,manas suthar,Present,Morning
+2026-03-20,1,manas suthar,Present,Afternoon
+2026-03-20,2,divyam,Present,Afternoon
+2026-03-20,19,KUSH JOSHI,Present,Morning
+2026-03-20,1,manas suthar,Present,Morning

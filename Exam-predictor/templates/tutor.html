@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Tutor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_aaru.css') }}">
+</head>
+<body class="tutor">
+    <div class="container">
+        <h2><i class="fas fa-brain"></i> SMART_TUTOR_A.I. / QUERY</h2>
+        <p>Input query for cognitive processing.</p>
+        
+        <form action="/tutor" method="POST">
+            <div class="form-group">
+                <input type="text" name="question" placeholder="SEARCH_SUBJECT..." required>
+            </div>
+            <button type="submit" class="btn-gradient">EXEC_QUERY</button>
+        </form>
+
+        <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> RETURN_TO_CORE</a>
+
+        <div class="attribution-box">
+            <span class="attribution-name">Mithil Panchal</span>
+            <span class="attribution-id">I26040187</span>
+        </div>
+    </div>
+
+
+</body>
+</html>

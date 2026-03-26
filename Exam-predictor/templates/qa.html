@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QA Bot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_aaru.css') }}">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="qa">
+    <div class="container">
+        <h2><i class="fas fa-satellite-dish"></i> Q&A_UPLINK / QUERY</h2>
+        <p>Establish uplink and transmit query.</p>
+
+        <form action="/qa_answer" method="POST">
+            <div class="form-group">
+                <input type="text" name="question" placeholder="ENTER_TOPIC..." required>
+            </div>
+            <button type="submit" class="btn-gradient">TRANSMIT</button>
+        </form>
+
+        <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> RETURN_TO_CORE</a>
+
+        <div class="attribution-box">
+            <span class="attribution-name">Mithil Panchal</span>
+            <span class="attribution-id">I26040187</span>
+        </div>
+    </div>
+
+</body>
+</html>

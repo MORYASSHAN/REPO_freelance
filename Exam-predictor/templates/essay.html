@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Essay Grader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_aaru.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="essay">
+    <div class="container">
+        <h2><i class="fas fa-terminal"></i> ESSAY_ANALYZER / SOURCE_INPUT</h2>
+        <p>Upload text for heuristic analysis.</p>
+
+        <form action="/grade_essay" method="POST">
+            <div class="form-group">
+                <textarea name="essay_text" rows="10" placeholder="START_INPUT..." required style="background: rgba(0,0,0,0.5); color: var(--neon-cyan); border: 1px solid rgba(0,242,255,0.3); font-family: 'JetBrains Mono', monospace;"></textarea>
+            </div>
+            <button type="submit" class="btn-gradient">EXEC_ANALYSIS</button>
+        </form>
+
+        <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> RETURN_TO_CORE</a>
+
+        <div class="attribution-box">
+            <span class="attribution-name">Mithil Panchal</span>
+            <span class="attribution-id">I26040187</span>
+        </div>
+    </div>
+
+</body>
+</html>

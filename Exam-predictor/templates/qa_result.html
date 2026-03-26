@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QA Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_aaru.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="qa">
+    <div class="container">
+        <h2><i class="fas fa-satellite-dish"></i> DATA_UPLINK / RECEIVED</h2>
+        
+        <!-- Typing animation -->
+        <div class="typing-indicator" id="thinking">
+            <p><i class="fas fa-robot fa-spin"></i> DECRYPTING_RESPONSE...</p>
+        </div>
+
+        <!-- Answer section (hidden initially) -->
+        <div id="answer-section" style="display: none;">
+            <div class="result-box">
+                <p><strong>[QUERY]:</strong> {{ question }}</p>
+                <p><strong>[RESPONSE]:</strong> {{ answer }}</p>
+            </div>
+
+            <a href="/qa" class="btn-back" style="color: var(--neon-cyan);"><i class="fas fa-redo"></i> NEW_UPLINK</a>
+            <br>
+            <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> RETURN_TO_CORE</a>
+        </div>
+
+        <div class="attribution-box">
+            <span class="attribution-name">Mithil Panchal</span>
+            <span class="attribution-id">I26040187</span>
+        </div>
+    </div>
+
+
+    <script>
+        // Show answer after 1.5 seconds
+        setTimeout(function() {
+            document.getElementById('thinking').style.display = 'none';
+            document.getElementById('answer-section').style.display = 'block';
+        }, 1500);
+    </script>
+</body>
+</html>
