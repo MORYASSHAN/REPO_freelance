@@ -8,20 +8,21 @@
 </head>
 <body class="attendance">
     <div class="container">
-        <h2><i class="fas fa-fingerprint"></i> ATTENDANCE_SYSTEM / AUTH</h2>
+        <h2>Attendance Tracker</h2>
+        <p>Register student presence for academic records.</p>
         <form action="/attendance_log" method="POST">
             <div class="form-group">
-                <label><i class="fas fa-user-secret"></i> ROLL_ID:</label>
-                <input type="text" name="roll_no" required placeholder="UID_000">
+                <label>Roll Number</label>
+                <input type="text" name="roll_no" required placeholder="e.g. 101">
             </div>
 
             <div class="form-group">
-                <label><i class="fas fa-user-tag"></i> ENTITY_NAME:</label>
-                <input type="text" name="student_name" required placeholder="NAME">
+                <label>Full Name</label>
+                <input type="text" name="student_name" required placeholder="Student Name">
             </div>
 
             <div class="form-group">
-                <label><i class="fas fa-clock"></i> TIME_SLOT:</label>
+                <label>Session Slot</label>
                 <select name="slot" required>
                     <option>Morning</option>
                     <option>Afternoon</option>
@@ -31,28 +32,29 @@
             </div>
 
             <div class="form-group">
-                <label><i class="fas fa-info-circle"></i> STATUS_CODE:</label>
+                <label>Status</label>
                 <select name="status" required>
                     <option>Present</option>
                     <option>Absent</option>
-                    <option>NA</option>
+                    <option>Not Available</option>
                 </select>
             </div>
 
-            <button type="submit" class="btn-gradient">SUBMIT_LOG</button>
+            <button type="submit" class="btn-gradient">Submit Attendance</button>
         </form>
 
         <div class="links" style="margin-top: 25px;">
-            <a href="/attendance_log" class="btn-back" style="color: #43cea2;"><i class="fas fa-database"></i> ACCESS_LOGS</a>
+            <a href="/attendance_log" class="btn-back" style="color: var(--secondary);"><i class="fas fa-list"></i> View Records</a>
             <br>
-            <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> RETURN_TO_CORE</a>
+            <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
         </div>
 
         <div class="attribution-box">
-            <span class="attribution-name">Mithil Panchal</span>
-            <span class="attribution-id">I26040187</span>
+            <span class="attribution-name">burhanuddin bohra</span>
+            <span class="attribution-id">I26040211</span>
         </div>
     </div>
+
 
 </body>
 </html>

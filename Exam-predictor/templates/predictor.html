@@ -8,35 +8,34 @@
 </head>
 <body class="predictor">
     <div class="container">
-        <h2><i class="fas fa-terminal"></i> EXAM_PREDICTOR / INPUT_DATA</h2>
-        <p>Initialize prediction sequence by entering parameters.</p>
+        <h2>Score Predictor</h2>
+        <p>Get a data-driven prediction of your upcoming exam results.</p>
 
         <form action="/predict" method="post">
             <div class="form-group">
-                <label><i class="fas fa-microchip"></i> STUDY_HOURS:</label>
-                <input type="number" name="study_hours" step="0.1" required placeholder="0.0">
+                <label>Daily Study Hours</label>
+                <input type="number" name="study_hours" step="0.1" required placeholder="e.g. 5.5">
             </div>
 
             <div class="form-group">
-                <label><i class="fas fa-signal"></i> ATTENDANCE_PCT:</label>
-                <input type="number" name="attendance" step="0.1" required placeholder="0.0">
+                <label>Attendance Percentage (%)</label>
+                <input type="number" name="attendance" step="0.1" required placeholder="e.g. 85">
             </div>
 
             <div class="form-group">
-                <label><i class="fas fa-history"></i> PAST_PERFORMANCE:</label>
-                <input type="number" name="past_scores" step="0.1" required placeholder="0.0">
+                <label>Past Academic Score</label>
+                <input type="number" name="past_scores" step="0.1" required placeholder="e.g. 78">
             </div>
 
             <br>
-            <button type="submit" class="btn-gradient">EXEC_PREDICTION</button>
+            <button type="submit" class="btn-gradient">Calculate Prediction</button>
         </form>
 
-        <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> RETURN_TO_CORE</a>
+        <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
 
         <div class="attribution-box">
-            <span class="attribution-label">SYSTEM_AUTHORIZED_BY:</span>
-            <span class="attribution-name">Mithil Panchal</span>
-            <span class="attribution-id">I26040187</span>
+            <span class="attribution-name">burhanuddin bohra</span>
+            <span class="attribution-id">I26040211</span>
         </div>
     </div>
 

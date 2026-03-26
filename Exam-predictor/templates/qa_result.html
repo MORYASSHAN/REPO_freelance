@@ -7,30 +7,31 @@
 </head>
 <body class="qa">
     <div class="container">
-        <h2><i class="fas fa-satellite-dish"></i> DATA_UPLINK / RECEIVED</h2>
+        <h2>Consultation Result</h2>
         
-        <!-- Typing animation -->
-        <div class="typing-indicator" id="thinking">
-            <p><i class="fas fa-robot fa-spin"></i> DECRYPTING_RESPONSE...</p>
+        <!-- Thinking indicator -->
+        <div id="thinking" style="color: var(--text-secondary); margin-bottom: 20px;">
+            <i class="fas fa-circle-notch fa-spin"></i> Processing academic query...
         </div>
 
         <!-- Answer section (hidden initially) -->
         <div id="answer-section" style="display: none;">
             <div class="result-box">
-                <p><strong>[QUERY]:</strong> {{ question }}</p>
-                <p><strong>[RESPONSE]:</strong> {{ answer }}</p>
+                <p style="color: var(--text-secondary); margin-bottom: 15px;"><strong>Your Question:</strong> {{ question }}</p>
+                <p><strong>AI Assistant:</strong> {{ answer }}</p>
             </div>
 
-            <a href="/qa" class="btn-back" style="color: var(--neon-cyan);"><i class="fas fa-redo"></i> NEW_UPLINK</a>
+            <a href="/qa" class="btn-back" style="color: var(--primary);"><i class="fas fa-redo"></i> Ask Another Question</a>
             <br>
-            <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> RETURN_TO_CORE</a>
+            <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
         </div>
 
         <div class="attribution-box">
-            <span class="attribution-name">Mithil Panchal</span>
-            <span class="attribution-id">I26040187</span>
+            <span class="attribution-name">burhanuddin bohra</span>
+            <span class="attribution-id">I26040211</span>
         </div>
     </div>
+
 
 
     <script>

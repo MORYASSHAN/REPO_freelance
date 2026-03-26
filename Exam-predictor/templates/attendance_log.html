@@ -8,25 +8,26 @@
 </head>
 <body class="attendance">
     <div class="container" style="width: 95%; max-width: 1000px;">
-        <h2><i class="fas fa-microchip"></i> ATTENDANCE_LOG / DATABASE</h2>
+        <h2>Attendance Records</h2>
+        <p>Daily presence log for all students.</p>
         
         <div style="overflow-x: auto;">
             <table>
                 <thead>
                     <tr>
-                        <th>ROLL_ID</th>
-                        <th>ENTITY_NAME</th>
-                        <th>MORNING</th>
-                        <th>AFTERNOON</th>
-                        <th>EVENING</th>
-                        <th>EXTRA</th>
-                        <th>GLOBAL</th>
+                        <th>Roll ID</th>
+                        <th>Student Name</th>
+                        <th>Morning</th>
+                        <th>Afternoon</th>
+                        <th>Evening</th>
+                        <th>Extra</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for record in records %}
                     <tr>
-                        <td>{{ record.roll_no }}</td>
+                        <td style="font-weight: 500;">{{ record.roll_no }}</td>
                         <td>{{ record.student_name }}</td>
                         <td><span class="badge {{ 'badge-present' if record.slots.Morning == 'Present' else 'badge-absent' if record.slots.Morning == 'Absent' else '' }}">{{ record.slots.Morning or 'N/A' }}</span></td>
                         <td><span class="badge {{ 'badge-present' if record.slots.Afternoon == 'Present' else 'badge-absent' if record.slots.Afternoon == 'Absent' else '' }}">{{ record.slots.Afternoon or 'N/A' }}</span></td>
@@ -39,15 +40,16 @@
             </table>
         </div>
 
-        <a href="/attendance" class="btn-back" style="color: #43cea2; margin-top: 30px;"><i class="fas fa-plus"></i> NEW_ENTRY</a>
+        <a href="/attendance" class="btn-back" style="color: var(--secondary); margin-top: 30px;"><i class="fas fa-plus"></i> New Entry</a>
         <br>
-        <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> RETURN_TO_CORE</a>
+        <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
 
         <div class="attribution-box">
-            <span class="attribution-name">Mithil Panchal</span>
-            <span class="attribution-id">I26040187</span>
+            <span class="attribution-name">burhanuddin bohra</span>
+            <span class="attribution-id">I26040211</span>
         </div>
     </div>
+
 
 </body>
 </html>

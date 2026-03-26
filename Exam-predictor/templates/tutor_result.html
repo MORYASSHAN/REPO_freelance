@@ -7,22 +7,25 @@
 </head>
 <body class="tutor">
     <div class="container">
-        <h2><i class="fas fa-microchip"></i> QUERY_RESPONSE / DATA</h2>
+        <h2>Tutor Response</h2>
         <div class="result-box">
-            <p><strong>[INPUT]:</strong> {{ question }}</p>
-            <p><strong>[OUTPUT]:</strong> {{ answer }}</p>
-            <p style="color: var(--neon-cyan); margin-top: 15px;">>> [SUGGESTION]: {{ tip }}</p>
+            <p style="color: var(--text-secondary); margin-bottom: 10px;"><strong>Question:</strong> {{ question }}</p>
+            <p><strong>Answer:</strong> {{ answer }}</p>
+            <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); color: var(--secondary);">
+                <i class="fas fa-lightbulb"></i> <strong>Pro Tip:</strong> {{ tip }}
+            </div>
         </div>
 
-        <a href="/tutor" class="btn-back" style="color: var(--neon-cyan);"><i class="fas fa-redo"></i> NEW_QUERY</a>
+        <a href="/tutor" class="btn-back" style="color: var(--primary);"><i class="fas fa-redo"></i> Ask Another Question</a>
         <br>
-        <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> RETURN_TO_CORE</a>
+        <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
 
         <div class="attribution-box">
-            <span class="attribution-name">Mithil Panchal</span>
-            <span class="attribution-id">I26040187</span>
+            <span class="attribution-name">burhanuddin bohra</span>
+            <span class="attribution-id">I26040211</span>
         </div>
     </div>
+
 
 </body>
 </html>

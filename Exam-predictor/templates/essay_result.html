@@ -7,21 +7,23 @@
 </head>
 <body class="essay">
     <div class="container">
-        <h2><i class="fas fa-clipboard-check"></i> ANALYSIS_COMPLETE / REPORT</h2>
+        <h2>Grading Result</h2>
+        <p>Here is the analysis of your essay.</p>
         <div class="result-box">
-            <p style="font-family: 'JetBrains Mono', monospace; font-size: 24px; color: var(--neon-cyan);">>> SCORE: {{ score }}/100</p>
-            <p><strong>[FEEDBACK]:</strong> {{ feedback }}</p>
+            <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary);">{{ score }}%</div>
+            <p style="margin-top: 10px;"><strong>Feedback:</strong> {{ feedback }}</p>
         </div>
 
-        <a href="/essay" class="btn-back" style="color: var(--neon-cyan);"><i class="fas fa-redo"></i> NEW_ANALYSIS</a>
+        <a href="/essay" class="btn-back" style="color: var(--primary);"><i class="fas fa-edit"></i> Grade Another Essay</a>
         <br>
-        <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> RETURN_TO_CORE</a>
+        <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
 
         <div class="attribution-box">
-            <span class="attribution-name">Mithil Panchal</span>
-            <span class="attribution-id">I26040187</span>
+            <span class="attribution-name">burhanuddin bohra</span>
+            <span class="attribution-id">I26040211</span>
         </div>
     </div>
+
 
 </body>
 </html>
