@@ -64,6 +64,7 @@ h1 {
     margin-bottom: 0.75rem;
     background: linear-gradient(135deg, var(--text-high) 0%, var(--primary-main) 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.02em;
 }
@@ -125,6 +126,7 @@ p {
     font-size: 36px;
     background: linear-gradient(135deg, var(--primary-main), var(--accent-teal));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 5px;
 }
@@ -290,6 +292,140 @@ tr td:last-child {
 
 .badge-present { background: rgba(45, 212, 191, 0.2); color: var(--accent-teal); }
 .badge-absent { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+
+/* Hero Card Styles */
+.hero-card {
+    display: block;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(129, 140, 248, 0.12));
+    border: 2px solid var(--primary-main);
+    border-radius: var(--radius-xl);
+    padding: 60px 40px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-high);
+    margin-bottom: 40px;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 35px -10px rgba(56, 189, 248, 0.25);
+}
+
+.hero-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px -15px rgba(56, 189, 248, 0.4);
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(129, 140, 248, 0.18));
+}
+
+.hero-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--primary-main), var(--accent-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-card h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #ffffff 0%, var(--primary-main) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-card p {
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    margin: 0 auto 30px auto;
+    max-width: 800px;
+}
+
+.btn-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--primary-main) 0%, var(--accent-purple) 100%);
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.hero-card:hover .btn-hero {
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
+    transform: scale(1.05);
+}
+
+/* Future Plans Styles */
+.future-plans {
+    margin-bottom: 40px;
+    background: rgba(45, 212, 191, 0.05);
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: var(--text-high);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-title i {
+    color: var(--accent-teal);
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-teal);
+    transition: var(--transition-smooth);
+}
+
+.timeline-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(5px);
+}
+
+.timeline-date {
+    font-size: 0.95rem;
+    color: var(--accent-teal);
+    font-weight: 600;
+    min-width: 80px;
+    padding-top: 2px;
+}
+
+.timeline-content h4 {
+    font-size: 1.15rem;
+    color: var(--text-high);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    color: var(--text-dim);
+    margin-bottom: 0;
+}
+
 
 @media (max-width: 768px) {
     .dashboard-container, .container {
