@@ -2,18 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --bg-dark: #020617;
-    --glass-bg: rgba(15, 23, 42, 0.65);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --primary-main: #38bdf8;
-    --primary-glow: rgba(56, 189, 248, 0.4);
-    --accent-purple: #818cf8;
-    --accent-teal: #2dd4bf;
-    --text-high: #f1f5f9;
-    --text-dim: #94a3b8;
-    --radius-xl: 24px;
-    --radius-lg: 16px;
-    --shadow-subtle: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    --bg-dark: #0f0518;
+    --glass-bg: rgba(20, 10, 30, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --primary-main: #f97316;
+    --primary-glow: rgba(249, 115, 22, 0.4);
+    --accent-purple: #f43f5e;
+    --accent-teal: #fbbf24;
+    --text-high: #fdf6f5;
+    --text-dim: #cbd5e1;
+    --radius-xl: 30px;
+    --radius-lg: 20px;
+    --shadow-subtle: 0 10px 40px -10px rgba(0, 0, 0, 0.7);
     --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -27,9 +27,9 @@ body {
     font-family: 'Outfit', sans-serif;
     background-color: var(--bg-dark);
     background-image: 
-        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 85% 15%, rgba(129, 140, 248, 0.1) 0%, transparent 35%),
-        radial-gradient(circle at 50% 80%, rgba(45, 212, 191, 0.08) 0%, transparent 45%);
+        radial-gradient(circle at 10% 20%, rgba(249, 115, 22, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 15%, rgba(244, 63, 94, 0.1) 0%, transparent 35%),
+        radial-gradient(circle at 50% 80%, rgba(251, 191, 36, 0.08) 0%, transparent 45%);
     background-attachment: fixed;
     color: var(--text-high);
     line-height: 1.6;
@@ -44,18 +44,27 @@ body {
 }
 
 .dashboard-container, .container {
-    max-width: 1000px;
-    margin: 80px auto;
-    padding: 50px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 50px 60px;
     background: var(--glass-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-subtle);
     animation: fadeInUp 0.8s var(--transition-smooth);
     position: relative;
     z-index: 1;
+}
+
+/* Dashboard Split Grid Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 50px;
+    margin-top: 40px;
+    align-items: flex-start;
 }
 
 h1 {
@@ -207,13 +216,24 @@ input:focus, select:focus, textarea:focus {
 
 /* Attribution Box */
 .attribution-box {
-    margin-top: 50px;
-    padding-top: 30px;
-    border-top: 1px solid var(--glass-border);
-    display: flex;
+    margin-top: 60px;
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    justify-content: center;
+    gap: 4px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(129, 140, 248, 0.08));
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition-smooth);
+}
+
+.attribution-box:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(129, 140, 248, 0.12));
+    border-color: rgba(56, 189, 248, 0.3);
 }
 
 .attribution-name {
@@ -222,21 +242,25 @@ input:focus, select:focus, textarea:focus {
     font-size: 1rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    opacity: 0.9;
 }
 
 .attribution-name::before {
-    content: 'Created by: ';
+    content: 'Developed by ';
     font-weight: 400;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     text-transform: none;
     color: var(--text-dim);
+    margin-right: 4px;
 }
 
 .attribution-id {
-    color: var(--text-dim);
+    color: var(--accent-teal);
     font-size: 0.9rem;
-    font-weight: 400;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    background: rgba(45, 212, 191, 0.1);
+    padding: 2px 10px;
+    border-radius: 12px;
 }
 
 /* Result Styles */
