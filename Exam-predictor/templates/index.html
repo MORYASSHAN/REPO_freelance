@@ -6,48 +6,59 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body class="dashboard">
-    <div class="dashboard-container">
-        <h1>Learning Dashboard</h1>
-        <p>Enhance your academic journey with our AI-powered tools.</p>
+<body class="dashboard aurora-theme">
+    <div class="dashboard-layout-flex">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar-navigation container">
+            <h1 class="sidebar-title">Intelligence Suite</h1>
+            <p class="sidebar-subtitle">Your AI-powered academic toolkit.</p>
 
-        <a href="/predictor" class="hero-card hero-horizontal">
-            <div class="hero-text-content">
-                <h2>Predictive Analytics</h2>
-                <p>Analyze your performance and get AI-driven score forecasts.</p>
-            </div>
-            <span class="btn-hero">Forecast Now <i class="fas fa-bolt"></i></span>
-        </a>
-
-        <div class="bottom-section">
-            <h3 class="section-title"><i class="fas fa-layer-group"></i> Intelligence Suite</h3>
-            <div class="nav-grid">
-                <a href="/tutor" class="nav-card">
+            <nav class="nav-vertical">
+                <a href="/tutor" class="nav-item">
                     <i class="fas fa-headset"></i>
                     <span>Conversational AI Tutor</span>
                 </a>
-                <a href="/essay" class="nav-card">
+                <a href="/essay" class="nav-item">
                     <i class="fas fa-spell-check"></i>
                     <span>Essay Analyzer</span>
                 </a>
-                <a href="/attendance" class="nav-card">
+                <a href="/attendance" class="nav-item">
                     <i class="fas fa-clipboard-user"></i>
                     <span>Attendance Insights</span>
                 </a>
-                <a href="/qa" class="nav-card">
+                <a href="/qa" class="nav-item">
                     <i class="fas fa-brain"></i>
                     <span>Q&A AI Engine</span>
                 </a>
+            </nav>
+
+            <div class="attribution-sidebar">
+                <span class="attribution-name">Gudla Siddanth</span>
+                <span class="attribution-id">I26040185</span>
             </div>
-        </div>
+        </aside>
 
-        <div class="attribution-box">
-            <span class="attribution-name">Burhanuddin Bohra</span>
-            <span class="attribution-id">I26040211</span>
-        </div>
+        <!-- Main Content Area -->
+        <main class="main-content-area">
+            <div class="top-header-panel container">
+                <h2>Learning Dashboard Overview</h2>
+            </div>
+            
+            <a href="/predictor" class="hero-card aurora-hero container">
+                <div class="hero-text-content">
+                    <i class="fas fa-chart-line hero-icon aurora-icon"></i>
+                    <h2>Predictive Analytics</h2>
+                    <p>Harness advanced machine learning models to analyze your performance and receive highly accurate, AI-driven score forecasts.</p>
+                </div>
+                <span class="btn-hero btn-aurora">Initialize Forecast <i class="fas fa-bolt"></i></span>
+            </a>
+            
+            <div class="welcome-card container">
+                <h3><i class="fas fa-satellite-dish"></i> Systems Online</h3>
+                <p>Welcome back. Please select a module from the Intelligence Suite on the left to begin your session.</p>
+            </div>
+        </main>
     </div>
-
-
 
 </body>
 </html>
